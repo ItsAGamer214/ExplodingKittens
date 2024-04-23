@@ -25,7 +25,7 @@ Each player takes turns drawing cards from the deck. The goal is to avoid drawin
 3. If you draw an Exploding Kitten card and you don't have a Defuse card, you're out of the game.
 4. Use strategy and luck to avoid Exploding Kittens and be the last player standing to win!
 
-For detailed rules, check out the [Game Rules](#) section.
+For detailed rules, check out the [Game Rules] section.
 
 ## Game Features
 - Online multiplayer
@@ -46,7 +46,7 @@ For detailed rules, check out the [Game Rules](#) section.
 Ensure you have Java installed. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
 
 ### Download
-Download the latest release of "Exploding Kittens: Party Pack Edition" from the [Releases](#) page.
+Download the latest release of "Exploding Kittens: Party Pack Edition" from the [Releases]page.
 
 ## Running the Game
 To run the game, execute the following command in your terminal or command prompt:
@@ -57,13 +57,13 @@ java -jar ExplodingKittensPartyPack.jar
 If you're running the game for the first time, you'll be prompted to set up your user profile.
 
 ## Contributing
-We welcome contributions from the community. If you're interested in helping to improve the game, check out the [Contributing Guidelines](CONTRIBUTING.md).
+We welcome contributions from the community. If you're interested in helping to improve the game, check out the [Contributing Guidelines].
 
 ## Support
 For support, [open an issue](https://github.com/your-repo/exploding-kittens/issues) or contact our help desk.
 
 ## License
-"Exploding Kittens: Party Pack Edition" is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+"Exploding Kittens: Party Pack Edition" is licensed under the MIT License - see the [LICENSE] file for details.
 
 ---
 
