@@ -3,7 +3,7 @@ package model.cards;
 public class DefuseCard extends Card {
 
     public DefuseCard(String name, String description, boolean isNopeable) {
-        super(name, description, isNopeable);
+        super(name, description, false);
     }
 
     /**
@@ -15,8 +15,5 @@ public class DefuseCard extends Card {
 
     }
 
-    @Override
-    public void draw() {
 
-    }
 }

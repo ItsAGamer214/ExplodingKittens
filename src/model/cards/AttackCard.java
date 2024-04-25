@@ -2,7 +2,7 @@ package model.cards;
 
 public class AttackCard extends Card{
     public AttackCard(String name, String description, boolean isNopeable) {
-        super(name, description, isNopeable);
+        super(name, description, true);
     }
 
     /**
@@ -14,8 +14,4 @@ public class AttackCard extends Card{
 
     }
 
-    @Override
-    public void draw() {
-
-    }
 }

@@ -14,8 +14,5 @@ public class SeeTheFuture extends Card{
 
     }
 
-    @Override
-    public void draw() {
 
-    }
 }
