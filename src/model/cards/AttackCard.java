@@ -12,4 +12,9 @@ public class AttackCard implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "Attack";
+    }
+
 }

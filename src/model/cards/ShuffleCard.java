@@ -12,4 +12,8 @@ public class ShuffleCard implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "Shuffle";
+    }
 }

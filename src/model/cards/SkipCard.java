@@ -12,4 +12,9 @@ public class SkipCard implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "Skip";
+    }
+
 }

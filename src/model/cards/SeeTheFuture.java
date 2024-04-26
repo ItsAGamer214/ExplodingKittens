@@ -12,4 +12,9 @@ public class SeeTheFuture implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "See The Future";
+    }
+
 }

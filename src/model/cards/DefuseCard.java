@@ -12,5 +12,9 @@ public class DefuseCard implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "Defuse";
+    }
 
 }

@@ -12,4 +12,8 @@ public class NopeCard implements Card {
 
     }
 
+    @Override
+    public String toString(){
+        return "Nope";
+    }
 }

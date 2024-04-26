@@ -12,7 +12,7 @@ public class Deck {
 
     public Deck(int numPlayers){
         cardFactory = new CardFactory(numPlayers);
-        a = new ArrayDeque<>();
+        a = (ArrayDeque<Card>) cardFactory.getCards();
     }
 
     public void discard(Card card){

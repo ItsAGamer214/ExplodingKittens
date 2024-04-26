@@ -7,13 +7,13 @@ import java.util.*;
 
 public class CardFactory {
 
-    public static final int[] minPlayers = {2, 3,  9, 4, 3, 2, 4};
-    public static final int[] midPlayers = {3, 7,  9, 5, 3, 4, 6};
-    public static final int[] maxPlayers = {5, 10, 9, 9, 6, 6, 10};
+    private static final int[] minPlayers = {2, 3,  9, 4, 3, 2, 4};
+    private static final int[] midPlayers = {3, 7,  9, 5, 3, 4, 6};
+    private static final int[] maxPlayers = {5, 10, 9, 9, 6, 6, 10};
     //instance variables
-    List<Card> values;
-    int numPlayers;
-    Queue<Card> queue;
+    private List<Card> values;
+    private int numPlayers;
+    private Queue<Card> queue;
 
     public CardFactory(int numPlayers){
         this.numPlayers = numPlayers;
@@ -21,16 +21,16 @@ public class CardFactory {
         queue = new LinkedList<>(values);
     }
 
-    public int[] getCardNum(){
-        if(numPlayers > 8)
+    private int[] getCardNum(){
+        if(numPlayers >= 8)
             return maxPlayers;
-        if(numPlayers > 4)
+        if(numPlayers >= 4)
             return midPlayers;
         else
             return minPlayers;
     }
 
-    public List<Card> addAllCards(int[] cardNums){
+    private List<Card> addAllCards(int[] cardNums){
         List<Card> values = new ArrayList<>();
         for(int lcv = 0; lcv < cardNums[0]; lcv++)
             values.add(new AttackCard());
@@ -50,8 +50,11 @@ public class CardFactory {
         return values;
     }
 
-    public void shuffle(){
-        Collections.shuffle(values, new Random((int)(Math.random()*1000)));
+    private void shuffle(){
+        //Collections.shuffle(values, new Random((int)(Math.random()*1000)));
     }
 
+    public Queue<Card> getCards() {
+        return queue;
+    }
 }
