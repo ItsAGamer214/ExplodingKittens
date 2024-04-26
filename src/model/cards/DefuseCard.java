@@ -1,11 +1,8 @@
 package model.cards;
 
-public class DefuseCard extends Card {
+import interfaces.Card;
 
-    public DefuseCard(String name, String description, boolean isNopeable) {
-        super(name, description, false);
-    }
-
+public class DefuseCard implements Card {
     /**
      * Place a card and carry out it's action, removing the card
      * from the user's hand

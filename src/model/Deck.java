@@ -1,19 +1,17 @@
 package model;
 
-import model.cards.Card;
+import interfaces.Card;
 import util.CardFactory;
-
 
 import java.util.ArrayDeque;
 
-
 public class Deck {
     CardFactory cardFactory;
-    int size;
+    int numPlayers;
     public ArrayDeque<Card> a;
 
-    public Deck(int size){
-        cardFactory = new CardFactory(size);
+    public Deck(int numPlayers){
+        cardFactory = new CardFactory(numPlayers);
         a = new ArrayDeque<>();
     }
 

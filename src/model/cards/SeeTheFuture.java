@@ -1,10 +1,8 @@
 package model.cards;
 
-public class SeeTheFuture extends Card{
-    public SeeTheFuture(String name, String description, boolean isNopeable) {
-        super(name, description, isNopeable);
-    }
+import interfaces.Card;
 
+public class SeeTheFuture implements Card {
     /**
      * Place a card and carry out it's action, removing the card
      * from the user's hand
@@ -13,6 +11,5 @@ public class SeeTheFuture extends Card{
     public void play() {
 
     }
-
 
 }

@@ -1,6 +1,6 @@
 package model;
 
-import model.cards.Card;
+import interfaces.Card;
 import model.cards.DefuseCard;
 
 import java.util.ArrayList;
