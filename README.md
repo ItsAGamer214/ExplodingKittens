@@ -1,4 +1,4 @@
-# Exploding Kittens: Party Pack Edition
+w# Exploding Kittens: Party Pack Edition
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -18,17 +18,17 @@ The digital "Exploding Kittens: Party Pack Edition" is a Java-based adaptation o
 To get started with "Exploding Kittens: Party Pack Edition," you will need to have Java installed on your system. This document will guide you through the installation process and the basic rules of the game.
 
 ## How to Play
-Each player takes turns drawing model.cards from the deck. The goal is to avoid drawing an Exploding Kitten card while trying to sabotage your opponents or protect yourself. Here's a quick rundown:
+Each player takes turns drawing cards from the deck. The goal is to avoid drawing an Exploding Kitten card while trying to sabotage your opponents or protect yourself. Here's a quick rundown:
 
-1. Play any number of action model.cards from your hand.
+1. Play any number of action cards from your hand.
 2. Draw a card from the deck to end your turn.
-3. If you draw an Exploding Kitten card and you don't have a Defuse card, you're out of the game.
+3. If you draw an Exploding Kitten card, and you don't have a Defuse card, you're out of the game.
 4. Use strategy and luck to avoid Exploding Kittens and be the last player standing to win!
 
 For detailed rules, check out the [Game Rules] section.
 
 ## Game Features
-- Online multiplayer
+- Local multiplayer (2-10 players)
 - Animated card effects
 - Dynamic trading system
 - Daily and weekly challenges

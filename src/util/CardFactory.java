@@ -3,24 +3,21 @@ package util;
 import model.cards.*;
 import interfaces.Card;
 
-import java.sql.Array;
 import java.util.*;
 
 public class CardFactory {
 
-    private static final int[] minPlayers = {2, 3,  9, 4, 3, 2, 4};
-    private static final int[] midPlayers = {3, 7,  9, 5, 3, 4, 6};
-    private static final int[] maxPlayers = {5, 10, 9, 9, 6, 6, 10};
+    private static final int[] minPlayers = {2, 3,  4, 3, 2, 4};
+    private static final int[] midPlayers = {3, 7,  5, 3, 4, 6};
+    private static final int[] maxPlayers = {5, 10, 9, 6, 6, 10};
     //instance variables
-    private List<Card> values;
-    private int numPlayers;
-    private Queue<Card> queue;
+    private final int numPlayers;
+    private final Queue<Card> queue;
 
     public CardFactory(int numPlayers){
         this.numPlayers = numPlayers;
-        values = new ArrayList<>();
-        values = addAllCards(getCardNum());
-        queue = new LinkedList<>(values);
+        List<Card> list = shuffle(addAllCards(getCardNum()));
+        queue = new LinkedList<>(list);
     }
 
     private int[] getCardNum(){
@@ -33,28 +30,28 @@ public class CardFactory {
     }
 
     private List<Card> addAllCards(int[] cardNums){
-        List<Card> values = new ArrayList<>();
+        List<Card> cards = new ArrayList<>();
         for(int lcv = 0; lcv < cardNums[0]; lcv++)
-            values.add(new AttackCard());
-        for(int lcv = 0; lcv < cardNums[1]; lcv++)
-            values.add(new DefuseCard());
+            cards.add(new AttackCard());
+        for(int lcv = 0; lcv < cardNums[1] - numPlayers; lcv++) //take out 1 defuse card for every player
+            cards.add(new DefuseCard());
+        for(int lcv = 0; lcv < numPlayers-1; lcv++) //include 1 less than the number of players
+            cards.add(new ExplodingKittenCard());
         for(int lcv = 0; lcv < cardNums[2]; lcv++)
-            values.add(new ExplodingKittenCard());
+            cards.add(new NopeCard());
         for(int lcv = 0; lcv < cardNums[3]; lcv++)
-            values.add(new NopeCard());
+            cards.add(new SeeTheFuture());
         for(int lcv = 0; lcv < cardNums[4]; lcv++)
-            values.add(new SeeTheFuture());
+            cards.add(new ShuffleCard());
         for(int lcv = 0; lcv < cardNums[5]; lcv++)
-            values.add(new ShuffleCard());
-        for(int lcv = 0; lcv < cardNums[6]; lcv++)
-            values.add(new SkipCard());
-        shuffle();
-        return values;
+            cards.add(new SkipCard());
+        return cards;
     }
 
-    private void shuffle(){
-        if(!values.isEmpty())
-            Collections.shuffle(values);
+    private List<Card> shuffle(List<Card> list){
+        if(!list.isEmpty())
+            Collections.shuffle(list);
+        return list;
     }
 
     public Queue<Card> getCards() {
