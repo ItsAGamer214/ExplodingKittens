@@ -4,17 +4,17 @@ import interfaces.Card;
 import model.cards.DefuseCard;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private String name;
     private Deck deck;
-    private static final int initNumCards = 7;
-    private ArrayList<Card> hand;
+    private List<Card> hand;
 
     public Player(String name, Deck deck){
         this.name = name;
         this.deck = deck;
-
+        hand = new ArrayList<>();
     }
 
     /** If an ExplodingKittenCard is drawn, then this function will return
@@ -23,19 +23,47 @@ public class Player {
      * @return whether they live (true) or die (false)
      */
     public boolean onExplode(){
-         for(int i = 0; i < hand.size(); i++){
-             if(hand.get(i) instanceof DefuseCard){
-                 return true;
-             }
-         }
+        for (Card card : hand)
+            if (card instanceof DefuseCard)
+                return true;
         return false;
     }
 
-    /** Draw a card from the deck;
-     *
+    /**
+     * Retrieves the player's hand
+     * @return the player's hand
+     */
+    public List<Card> getHand(){
+        return hand;
+    }
+
+    /**
+     * Retrieves the player's name
+     * @return the player's name
+     */
+    public String getName(){
+        return name;
+    }
+
+    /**
+     * Draw a card from the deck;
      */
     public void draw(){
         hand.add(deck.draw());
+    }
+
+    /**
+     * Transfers the card to a certain player if possible
+     * @param other the player for the card to be transferred to
+     * @param card the card to be transferred
+     * @return true if transferred, false if not
+     */
+    public boolean transfer(Player other, Card card){
+        if(hand.remove(card)){
+            other.getHand().add(card);
+            return true;
+        }
+        return false;
     }
 
 

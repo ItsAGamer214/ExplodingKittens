@@ -3,6 +3,7 @@ package model.cards;
 import interfaces.Card;
 
 public class SkipCard implements Card {
+
     /**
      * Place a card and carry out it's action, removing the card
      * from the user's hand
@@ -12,6 +13,19 @@ public class SkipCard implements Card {
 
     }
 
+    /**
+     * Retrieves whether card type is nope-able
+     * @return true b/c it is always nope-able
+     */
+    @Override
+    public boolean isNopeable() {
+        return true;
+    }
+
+    /**
+     * Retrieves the name of the card
+     * @return  the card's name
+     */
     @Override
     public String toString(){
         return "Skip";

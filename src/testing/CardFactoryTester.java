@@ -3,7 +3,6 @@ package testing;
 import util.CardFactory;
 
 public class CardFactoryTester {
-
     public static void main(String[] args){
 
         System.out.println("Testing CardFactory.java");
