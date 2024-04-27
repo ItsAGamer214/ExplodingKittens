@@ -3,6 +3,7 @@ package util;
 import model.cards.*;
 import interfaces.Card;
 
+import java.sql.Array;
 import java.util.*;
 
 public class CardFactory {
@@ -17,6 +18,7 @@ public class CardFactory {
 
     public CardFactory(int numPlayers){
         this.numPlayers = numPlayers;
+        values = new ArrayList<>();
         values = addAllCards(getCardNum());
         queue = new LinkedList<>(values);
     }
@@ -51,7 +53,8 @@ public class CardFactory {
     }
 
     private void shuffle(){
-        //Collections.shuffle(values, new Random((int)(Math.random()*1000)));
+        if(!values.isEmpty())
+            Collections.shuffle(values);
     }
 
     public Queue<Card> getCards() {
