@@ -14,7 +14,7 @@ public class CardFactory {
 
     //instance variables
     int numPlayers;
-    Queue<Card> queue;
+    List<Card> list;
 
     /**
      * Allocates a new CardFactory that creates and stores the number of players and a queue of cards
@@ -22,8 +22,8 @@ public class CardFactory {
      */
     public CardFactory(int numPlayers){
         this.numPlayers = numPlayers;
-        List<Card> list = shuffle(addAllCards(getCardNum()));
-        queue = new LinkedList<>(list);
+        list = new ArrayList<>();
+        addAllCards(getCardNum());
     }
 
     /**
@@ -42,43 +42,30 @@ public class CardFactory {
     /**
      * Adds all the necessary cards to a list based on the card allocations
      * @param cardNums the integer array of card number allocations
-     * @return the sorted list of cards
      */
-    private List<Card> addAllCards(int[] cardNums){
-        List<Card> cards = new ArrayList<>();
+    private void addAllCards(int[] cardNums){
         for(int lcv = 0; lcv < cardNums[0]; lcv++)
-            cards.add(new AttackCard());
+            list.add(new AttackCard());
         for(int lcv = 0; lcv < cardNums[1] - numPlayers; lcv++) //take out 1 defuse card for every player
-            cards.add(new DefuseCard());
+            list.add(new DefuseCard());
         for(int lcv = 0; lcv < numPlayers-1; lcv++) //include 1 less than the number of players
-            cards.add(new ExplodingKittenCard());
+            list.add(new ExplodingKittenCard());
         for(int lcv = 0; lcv < cardNums[2]; lcv++)
-            cards.add(new NopeCard());
+            list.add(new NopeCard());
         for(int lcv = 0; lcv < cardNums[3]; lcv++)
-            cards.add(new SeeTheFuture());
+            list.add(new SeeTheFuture());
         for(int lcv = 0; lcv < cardNums[4]; lcv++)
-            cards.add(new ShuffleCard());
+            list.add(new ShuffleCard());
         for(int lcv = 0; lcv < cardNums[5]; lcv++)
-            cards.add(new SkipCard());
-        return cards;
-    }
-
-    /**
-     * Shuffles the given list of cards
-     * @param list the given list of cards
-     * @return  the shuffled list of cards
-     */
-    private List<Card> shuffle(List<Card> list){
-        if(!list.isEmpty())
-            Collections.shuffle(list);
-        return list;
+            list.add(new SkipCard());
+        Collections.shuffle(list);
     }
 
     /**
      * Retrieves the queue of cards
      * @return the queue of cards
      */
-    public Queue<Card> getCards() {
-        return queue;
+    public List<Card> getList() {
+        return list;
     }
 }

@@ -2,6 +2,8 @@ package model.cards;
 
 import interfaces.Card;
 
+import javax.swing.*;
+
 public class ExplodingKittenCard implements Card {
 
     /**
@@ -20,6 +22,16 @@ public class ExplodingKittenCard implements Card {
     @Override
     public boolean isNopeable() {
         return false;
+    }
+
+    /**
+     * Retrieves the card's images
+     * @return array of card's images
+     */
+    @Override
+    public ImageIcon[] getImages(){
+
+        return new ImageIcon[0];
     }
 
     public void onDraw() {

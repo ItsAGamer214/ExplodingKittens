@@ -4,8 +4,8 @@ import interfaces.Card;
 import model.cards.*;
 import util.GameUtils;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameUtilsTester {
     public static void main(String[] args){
@@ -14,17 +14,17 @@ public class GameUtilsTester {
         System.out.println("Testing Shuffle");
         System.out.println();
 
-        Queue<Card> queue = addCards();
-        System.out.println("Unshuffled Queue: " + queue);
+        List<Card> list = addCards();
+        System.out.println("Unshuffled List: " + list);
         for(int lcv = 0; lcv < 3; lcv++){
-            queue = GameUtils.shuffle(queue);
-            System.out.println("Shuffled Queue #" + (lcv+1) + ": " + queue);
+            list = GameUtils.shuffle(list);
+            System.out.println("Shuffled List #" + (lcv+1) + ": " + list);
         }
         System.out.println();
     }
 
-    private static Queue<Card> addCards(){
-        Queue<Card> cards = new LinkedList<>();
+    private static List<Card> addCards(){
+        List<Card> cards = new ArrayList<>();
         for(int lcv = 0; lcv < 2; lcv++)
             cards.add(new AttackCard());
         for(int lcv = 0; lcv < 1; lcv++)

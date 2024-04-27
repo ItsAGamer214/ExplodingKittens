@@ -2,22 +2,18 @@ package util;
 
 import interfaces.Card;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /** Use for Shuffle, pick card logic, etc **/
 public class GameUtils {
 
     /**
      * Shuffles the given queue of cards
-     * @param queue the given queue of cards
+     * @param list the given queue of cards
      * @return  the shuffled queue of cards
      */
-    public static Queue<Card> shuffle(Queue<Card> queue){
-        List<Card> list = new LinkedList<>(queue);
+    public static List<Card> shuffle(List<Card> list){
         Collections.shuffle(list);
-        return new LinkedList<>(list);
+        return list;
     }
 }

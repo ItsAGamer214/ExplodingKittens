@@ -2,13 +2,14 @@ package model;
 
 import interfaces.Card;
 import util.CardFactory;
-import java.util.ArrayDeque;
+
+import java.util.List;
 
 public class Deck {
 
     //instance variables
     CardFactory cardFactory;
-    public ArrayDeque<Card> deck;
+    public List<Card> deck;
 
     /**
      * Allocates a new Deck that creates and stores a CardFactory, number of players and a queue of cards
@@ -16,7 +17,7 @@ public class Deck {
      */
     public Deck(int numPlayers){
         cardFactory = new CardFactory(numPlayers);
-        deck = (ArrayDeque<Card>) cardFactory.getCards();
+        deck = cardFactory.getList();
     }
 
     /**
@@ -41,18 +42,14 @@ public class Deck {
      * @return the drawn card
      */
     public Card draw(){
-        return deck.pop();
+        return deck.remove(0);
     }
 
     /**
      * Retrieves the deck
      * @return the deck
      */
-    public ArrayDeque<Card> getDeck(){
+    public List<Card> getDeck(){
         return deck;
     }
 }
-
-
-
-//i think we should change this from an ArrayDeque to List b/c we need to have functionality to add to any place in the deck (for the next player to add the Exploding Kitten where they want)
