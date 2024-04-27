@@ -1,4 +1,4 @@
-w# Exploding Kittens: Party Pack Edition
+# Exploding Kittens: Party Pack Edition
 
 ## Table of Contents
 - [Introduction](#introduction)
