@@ -2,7 +2,9 @@ package model.cards;
 
 import interfaces.Card;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.File;
 
 public class DefuseCard implements Card {
 
@@ -31,7 +33,7 @@ public class DefuseCard implements Card {
     @Override
     public ImageIcon[] getImages(){
         ImageIcon[] images = new ImageIcon[5];
-        images[0] =
+        //images[0] = new ImageIcon(ImageIO.read(new File("path-to-file")));
         return images;
     }
 
