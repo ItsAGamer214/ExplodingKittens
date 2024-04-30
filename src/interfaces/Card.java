@@ -2,9 +2,10 @@ package interfaces;
 
 
 import javax.swing.*;
+import java.io.IOException;
 
 public  interface Card {
     void play();
     boolean isNopeable();
-    ImageIcon[] getImages();
+    ImageIcon[] getImages() throws IOException;
 }

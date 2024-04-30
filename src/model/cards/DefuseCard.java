@@ -5,6 +5,7 @@ import interfaces.Card;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 
 public class DefuseCard implements Card {
 
@@ -31,9 +32,9 @@ public class DefuseCard implements Card {
      * @return array of card's images
      */
     @Override
-    public ImageIcon[] getImages(){
+    public ImageIcon[] getImages() throws IOException {
         ImageIcon[] images = new ImageIcon[5];
-        //images[0] = new ImageIcon(ImageIO.read(new File("path-to-file")));
+        images[0] = new ImageIcon(ImageIO.read(new File("src/images/defuse/Laser-Pointer.jpg")));
         return images;
     }
 

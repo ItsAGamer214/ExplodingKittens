@@ -1,15 +1,12 @@
 package controller;
 
-import interfaces.Card;
 import model.Deck;
-import model.Game;
 import model.Player;
 import view.GameView;
 import view.PlayerView;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,28 +17,27 @@ import java.util.Scanner;
 public class GameController {
 
     public static void main(String[] args) throws IOException {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new GameView();
-            }
-        });
-        JFrame frame = new JFrame("Exploding Kittens");
-        ImageIcon image = new ImageIcon("images/Defuse-Via-Laser-Pointer.jpg");
-        frame.setSize(50, 50);
-        frame.add(new JLabel(image));
         GameView gameView = new GameView();
+        //gets number of players
+        int numPlayers = Integer.parseInt(JOptionPane.showInputDialog(gameView,
+                "How many players?", 2));
+
+        //gets player names & inits them
+        Deck deck = new Deck(numPlayers);
         List<Player> playerList = new ArrayList<>();
         List<PlayerView> playerViewList = new ArrayList<>();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the number of players: ");
-        int numPlayers = scan.nextInt();
-        Deck deck = new Deck(numPlayers);
+        String playerNames = JOptionPane.showInputDialog(gameView,
+                "Enter names:\n (Add space between each name)",null);
+        Scanner scan = new Scanner(playerNames);
         for(int lcv = 0; lcv < numPlayers; lcv++){
-            System.out.println("Player " + lcv+1 + " Name: ");
             playerList.add(new Player(scan.next(), deck));
             playerViewList.add(new PlayerView(playerList.get(lcv)));
+            gameView.add(new JPanel().add(new JLabel(playerList.get(lcv).getName())));
         }
         scan.close();
+
+        BufferedImage myPic = ImageIO.read(new File("src/images/deck.jpg"));
+        JLabel label = new JLabel(new ImageIcon(myPic));
+        gameView.add(new JPanel().add(label));
     }
 }
