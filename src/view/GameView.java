@@ -24,9 +24,9 @@ public class GameView extends JFrame {
         desktopPane.add(gameFrame);
         Image deckImage = ImageIO.read(new File("src/images/deck.jpg"));
         deckImage = deckImage.getScaledInstance(-1, gameFrame.getHeight()/2, Image.SCALE_DEFAULT);
-        JLabel deckLabel = new JLabel(new ImageIcon(deckImage));
+        JButton deckButton = new JButton(new ImageIcon(deckImage));
         gamePanel = new JPanel();
-        gamePanel.add(deckLabel);
+        gamePanel.add(deckButton);
     }
 
     public int getNumPlayers(){
