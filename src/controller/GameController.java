@@ -34,7 +34,7 @@ public class GameController {
         List<Player> playerList = new ArrayList<>();
         List<PlayerView> playerViewList = new ArrayList<>();
         String playerNames = JOptionPane.showInputDialog(gameView,
-                "Enter names:\n (Add space between each name)",null);
+                "Enter names:\n (Add comma between each name)",null);
         String[] names = playerNames.split(",");
         for(int lcv = 0; lcv < names.length; lcv++){
             playerList.add(new Player(names[lcv].trim(), deck));
@@ -42,15 +42,29 @@ public class GameController {
         }
 
         //add deck image
-        BufferedImage myPic1 = ImageIO.read(new File("src/images/deck.jpg"));
-        //myPic = myPic.getScaledInstance(myPic)
-        JLabel image1 = new JLabel(new ImageIcon(myPic1));
-        JPanel panel1 = new JPanel();
-        panel1.add(image1);
-        BufferedImage myPic2 = ImageIO.read(new File("src/images/defuse/Laser-Pointer.jpg"));
-        JLabel image2 = new JLabel(new ImageIcon(myPic2));
-        panel1.add(image2);
+        BufferedImage deckImage = ImageIO.read(new File("src/images/deck.jpg"));
+        //deckImage = deckImage.getScaledInstance(-1, gameFrame.getHeight()/2, Image.SCALE_FAST);
+        int newWidth = resize(deckImage.getHeight(), gameFrame.getHeight()/2, deckImage.getWidth());
+        BufferedImage newImage = new BufferedImage(newWidth,gameFrame.getHeight()/2 , BufferedImage.TYPE_INT_RGB);
+
+        Graphics g = newImage.createGraphics();
+        g.drawImage(deckImage, 0, 0,newWidth , gameFrame.getHeight()/2, null);
+        g.dispose();
+
+
+        JLabel deckLabel = new JLabel(new ImageIcon(newImage));
+        JPanel panel = new JPanel();
+        panel.add(deckLabel);
+        Image lastCardImage = ImageIO.read(new File("src/images/defuse/Laser-Pointer.jpg"));
+        lastCardImage = lastCardImage.getScaledInstance(-1, gameFrame.getHeight()*2/3, Image.SCALE_FAST);
+        JLabel lastCardLabel = new JLabel(new ImageIcon(lastCardImage));
+        panel.add(lastCardLabel);
         gameFrame.setLayout(new BorderLayout());
-        gameFrame.add(panel1, BorderLayout.CENTER);
+        gameFrame.add(panel, BorderLayout.CENTER);
+    }
+
+    public static int resize(int old1, int new1, int old2){
+        double proportion = new1*1.0/old1;
+        return (int) (old2*proportion);
     }
 }
