@@ -12,10 +12,12 @@ import java.io.IOException;
 
 public class GameView extends JFrame {
 
+    public int numPlayers;
     public JDesktopPane desktopPane;
     public JInternalFrame gameFrame;
     public JPanel gamePanel;
     public JButton deckButton;
+    public JTabbedPane playerView;
     public GameView() throws IOException {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -32,14 +34,22 @@ public class GameView extends JFrame {
         deckButton = new JButton(new ImageIcon(deckImage));
         gamePanel = new JPanel();
         gamePanel.add(deckButton);
+        playerView = new JTabbedPane();
     }
 
     public int getNumPlayers(){
-        return Integer.parseInt(JOptionPane.showInputDialog(this,
+        numPlayers = Integer.parseInt(JOptionPane.showInputDialog(this,
                 "How many players?", 2));
+        return numPlayers;
     }
     public String getPlayerNames(){
         return JOptionPane.showInputDialog(this,
                 "Enter names:\n (Add comma between each name)",null);
+    }
+
+    public void addPlayer(){
+        for(int lcv = 0; lcv < numPlayers; numPlayers++){
+            playerView.addTab("Anish", new JPanel());
+        }
     }
 }
