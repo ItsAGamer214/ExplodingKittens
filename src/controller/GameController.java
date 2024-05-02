@@ -1,5 +1,6 @@
 package controller;
 
+import interfaces.Card;
 import model.Deck;
 import model.Player;
 import view.GameView;
@@ -8,6 +9,8 @@ import view.PlayerView;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

@@ -1,8 +1,12 @@
 package view;
 
+import interfaces.Card;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -11,6 +15,7 @@ public class GameView extends JFrame {
     public JDesktopPane desktopPane;
     public JInternalFrame gameFrame;
     public JPanel gamePanel;
+    public JButton deckButton;
     public GameView() throws IOException {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -24,7 +29,7 @@ public class GameView extends JFrame {
         desktopPane.add(gameFrame);
         Image deckImage = ImageIO.read(new File("src/images/deck.jpg"));
         deckImage = deckImage.getScaledInstance(-1, gameFrame.getHeight()/2, Image.SCALE_DEFAULT);
-        JButton deckButton = new JButton(new ImageIcon(deckImage));
+        deckButton = new JButton(new ImageIcon(deckImage));
         gamePanel = new JPanel();
         gamePanel.add(deckButton);
     }
