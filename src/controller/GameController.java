@@ -26,7 +26,7 @@ public class GameController {
         Deck deck = new Deck(numPlayers);
         List<Player> playerList = new ArrayList<>();
         List<PlayerView> playerViewList = new ArrayList<>();
-        String[] names = gameView.getPlayerNames().split(",");
+        String[] names = gameView.getPlayerNames();
         for(int lcv = 0; lcv < names.length; lcv++){
             playerList.add(new Player(names[lcv].trim(), deck));
             playerViewList.add(new PlayerView(playerList.get(lcv)));
@@ -39,5 +39,9 @@ public class GameController {
         gameView.gameFrame.setLayout(new BorderLayout());
         gameView.gameFrame.add(gameView.gamePanel, BorderLayout.CENTER);
         gameView.gameFrame.setVisible(true);
+        gameView.playerFrame.setLayout(new BorderLayout());
+        gameView.addPlayers();
+        gameView.playerFrame.add(gameView.playerView, BorderLayout.CENTER);
+        gameView.playerFrame.setVisible(true);
     }
 }

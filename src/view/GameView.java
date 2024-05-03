@@ -1,22 +1,20 @@
 package view;
 
-import interfaces.Card;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 public class GameView extends JFrame {
 
     public int numPlayers;
+    public String[] playerNames;
     public JDesktopPane desktopPane;
     public JInternalFrame gameFrame;
     public JPanel gamePanel;
     public JButton deckButton;
+    public JInternalFrame playerFrame;
     public JTabbedPane playerView;
     public GameView() throws IOException {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -34,6 +32,9 @@ public class GameView extends JFrame {
         deckButton = new JButton(new ImageIcon(deckImage));
         gamePanel = new JPanel();
         gamePanel.add(deckButton);
+        playerFrame = new JInternalFrame("Player", true, false, false,true);
+        playerFrame.setBounds(0,this.getHeight()/2,this.getWidth(), this.getHeight()/2);
+        desktopPane.add(playerFrame);
         playerView = new JTabbedPane();
     }
 
@@ -42,14 +43,16 @@ public class GameView extends JFrame {
                 "How many players?", 2));
         return numPlayers;
     }
-    public String getPlayerNames(){
-        return JOptionPane.showInputDialog(this,
-                "Enter names:\n (Add comma between each name)",null);
+    public String[] getPlayerNames(){
+        playerNames = JOptionPane.showInputDialog(this,
+                "Enter names:\n (Add comma between each name)",null).split(",");
+        return playerNames;
     }
 
-    public void addPlayer(){
+    public void addPlayers(){
         for(int lcv = 0; lcv < numPlayers; numPlayers++){
-            playerView.addTab("Anish", new JPanel());
+            playerView.addTab(playerNames[lcv].trim(), new JPanel());
         }
+        playerView.setVisible(true);
     }
 }
